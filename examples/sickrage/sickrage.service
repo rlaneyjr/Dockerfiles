@@ -1,0 +1,18 @@
+[Unit]
+Description=Sickrage container
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStartPre=-/usr/bin/docker rm sickrage_run
+ExecStart=/usr/bin/docker run \
+--volumes-from sickrage_config \
+-p 8081:8081 \
+-v /etc/localtime:/etc/localtime:ro \
+--name sickrage_run \
+sickrage
+ExecStop=/usr/bin/docker stop sickrage_run
+
+[Install]
+WantedBy=multi-user.target

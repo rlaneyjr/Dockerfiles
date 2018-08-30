@@ -1,0 +1,18 @@
+[Unit]
+Description=Lazy Librarian container
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStartPre=-/usr/bin/docker rm lazylibrarian_run
+ExecStart=/usr/bin/docker run \
+--volumes-from lazylibrarian_config \
+-p 5299:5299 \
+-v /etc/localtime:/etc/localtime:ro \
+--name lazylibrarian_run \
+lazylibrarian
+ExecStop=/usr/bin/docker stop lazylibrarian_run
+
+[Install]
+WantedBy=multi-user.target

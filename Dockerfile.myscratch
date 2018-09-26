@@ -1,0 +1,3 @@
+FROM scratch
+LABEL "Maintainer"="Ricky Laney <rlaneyjr@gmail.com>"
+

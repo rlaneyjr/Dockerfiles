@@ -1,7 +1,7 @@
 # Elastic stack (ELK) on Docker
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Elastic Stack version](https://img.shields.io/badge/ELK-6.4.0-blue.svg?style=flat)](https://github.com/deviantony/docker-elk/issues/312)
+[![Elastic Stack version](https://img.shields.io/badge/ELK-6.5.4-blue.svg?style=flat)](https://github.com/deviantony/docker-elk/issues/344)
 [![Build Status](https://api.travis-ci.org/deviantony/docker-elk.svg?branch=master)](https://travis-ci.org/deviantony/docker-elk)
 
 Run the latest version of the [Elastic stack](https://www.elastic.co/elk-stack) with Docker and Docker Compose.
@@ -27,14 +27,14 @@ Based on the official Docker images from Elastic:
    * [Host setup](#host-setup)
    * [SELinux](#selinux)
    * [Docker for Windows](#docker-for-windows)
-2. [Getting started](#getting-started)
+2. [Usage](#usage)
    * [Bringing up the stack](#bringing-up-the-stack)
    * [Initial setup](#initial-setup)
 3. [Configuration](#configuration)
    * [How can I tune the Kibana configuration?](#how-can-i-tune-the-kibana-configuration)
    * [How can I tune the Logstash configuration?](#how-can-i-tune-the-logstash-configuration)
    * [How can I tune the Elasticsearch configuration?](#how-can-i-tune-the-elasticsearch-configuration)
-   * [How can I scale out the Elasticsearch cluster?](#how-can-i-scale-up-the-elasticsearch-cluster)
+   * [How can I scale out the Elasticsearch cluster?](#how-can-i-scale-out-the-elasticsearch-cluster)
 4. [Storage](#storage)
    * [How can I persist Elasticsearch data?](#how-can-i-persist-elasticsearch-data)
 5. [Extensibility](#extensibility)
@@ -127,7 +127,7 @@ Create an index pattern via the Kibana API:
 ```console
 $ curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
     -H 'Content-Type: application/json' \
-    -H 'kbn-version: 6.4.0' \
+    -H 'kbn-version: 6.5.4' \
     -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}'
 ```
 

@@ -1,0 +1,3 @@
+[submodule "TianonDockerfiles"]
+	path = TianonDockerfiles
+	url = https://github.com/tianon/dockerfiles.git
